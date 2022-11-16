@@ -1,0 +1,35 @@
+{
+  "name": "@builds-dev/esbuild-plugin-inline-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test/test.js"
+  },
+  "keywords": [
+    "esbuild",
+    "plugin",
+    "import",
+    "load",
+    "loader",
+    "js",
+    "inline",
+    "bundle",
+    "source",
+    "code"
+  ],
+  "author": "Johnny Hauser <johnnyhauser@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/builds-dev/esbuild-plugin-inline-js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "esbuild": "^0.15.14",
+    "recast": "^0.21.5"
+  },
+  "devDependencies": {
+    "uvu": "^0.5.6"
+  }
+}

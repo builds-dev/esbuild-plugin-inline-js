@@ -1,0 +1,10 @@
+/build/*
+/build_external/*
+/node_modules/*
+/package/*
+!**/.keep
+.DS_Store
+thumbs.db
+.idea/
+/out/*
+tmp
