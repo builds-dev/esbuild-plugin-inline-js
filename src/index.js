@@ -29,37 +29,10 @@ const export_default = value => ({
 	declaration: value
 })
 
-const return_statement = argument => ({
-	type: 'ReturnStatement',
-	argument
-})
-
-const identifier = name => ({ type: 'Identifier', name })
-
 const _var = declarators => ({
 	kind: 'var',
 	type: 'VariableDeclaration',
 	declarations: declarators
-})
-
-const iife = body => ({
-	type: 'ExpressionStatement',
-	expression: {
-		arguments: [],
-		type: 'CallExpression',
-		callee: {
-			type: 'ArrowFunctionExpression',
-			id: null,
-			params: [],
-			body: {
-				type: 'BlockStatement',
-				body
-			},
-			generator: false,
-			expression: false,
-			async: false,
-		}
-	}
 })
 
 export const inline_js = () => ({
