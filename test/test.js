@@ -4,7 +4,7 @@ import { suite } from 'uvu'
 import * as assert from 'uvu/assert'
 import { build } from 'esbuild'
 import pkg from '../package.json' assert { type: 'json' }
-import { inline_js } from '../src/index.js'
+import { inline_js } from '../src/esbuild.js'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 

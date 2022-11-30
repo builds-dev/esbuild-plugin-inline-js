@@ -27,7 +27,7 @@ export const inline_js = () => ({
 				filter: /.*/, namespace
 			},
 			async ({ path }) => ({
-				contents: await get_inline_js(path)
+				contents: await get_inline_js(path),
 				loader: 'js'
 			})
 		)
