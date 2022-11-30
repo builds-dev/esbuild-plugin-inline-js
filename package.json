@@ -1,5 +1,5 @@
 {
-  "name": "@builds-dev/esbuild-plugin-inline-js",
+  "name": "@builds-dev/plugin-inline-js",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
@@ -7,8 +7,13 @@
   "scripts": {
     "test": "node test/test.js"
   },
+  "exports": {
+    "esbuild": "./src/esbuild.js",
+    "rollup": "./src/rollup.js"
+  },
   "keywords": [
     "esbuild",
+    "rollup",
     "plugin",
     "import",
     "load",
@@ -22,7 +27,7 @@
   "author": "Johnny Hauser <johnnyhauser@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/builds-dev/esbuild-plugin-inline-js"
+    "url": "https://github.com/builds-dev/plugin-inline-js"
   },
   "license": "ISC",
   "dependencies": {
