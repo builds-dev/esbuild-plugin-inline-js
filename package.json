@@ -8,8 +8,8 @@
     "test": "node test/test.js"
   },
   "exports": {
-    "esbuild": "./src/esbuild.js",
-    "rollup": "./src/rollup.js"
+    "./esbuild": "./src/esbuild.js",
+    "./rollup": "./src/rollup.js"
   },
   "keywords": [
     "esbuild",
