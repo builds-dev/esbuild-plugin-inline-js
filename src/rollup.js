@@ -27,6 +27,7 @@ export const inline_js = () => {
 			if (module_info.meta[meta]) {
 				const { importer, options } = module_info.meta[meta]
 				const resolution = await this.resolve(id, importer, options)
+				this.addWatchFile(resolution.id)
 				return { code: await get_inline_js(resolution.id) }
 			}
 			return null
