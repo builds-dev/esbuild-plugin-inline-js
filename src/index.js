@@ -27,6 +27,14 @@ const export_default = value => ({
 })
 
 export const get_inline_js = async path => {
+	/*
+		NOTE: recast.parse uses esprima by default,
+			which does not currently support newer JS features like the spread operator.
+			Either target es6 with esbuild, or configure recast with a different parser.
+	*/
+	/*
+		TODO: this bundling step should probably be pushed out of here, and maybe just included with the library as a helper or within some other convenient way of pre-processing the code at the path. In that case, it's probably best to configure recast with a parser than can handle modern JS.
+	*/
 	const bundle = await esbuild.build({
 		entryPoints: [ path ],
 		bundle: true,
@@ -34,7 +42,7 @@ export const get_inline_js = async path => {
 		format: 'esm',
 		minify: true,
 		sourcemap: 'inline',
-		target: 'esnext'
+		target: 'es6'
 	})
 	const bundle_code = bundle.outputFiles[0].text
 	const ast = recast.parse(bundle_code)
