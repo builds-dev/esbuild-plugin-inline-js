@@ -14,7 +14,7 @@ export const inline_js = () => {
 			return source.startsWith(virtual_module_id_prefix)
 				?
 					{
-						id: source.slice(virtual_module_id_prefix.length),
+						id: source,
 						meta: {
 							[meta]: { importer, options }
 						}
@@ -26,7 +26,11 @@ export const inline_js = () => {
 			const module_info = this.getModuleInfo(id)
 			if (module_info.meta[meta]) {
 				const { importer, options } = module_info.meta[meta]
-				const resolution = await this.resolve(id, importer, options)
+				const resolution = await this.resolve(
+					id.slice(virtual_module_id_prefix.length),
+					importer,
+					options
+				)
 				this.addWatchFile(resolution.id)
 				return { code: await get_inline_js(resolution.id) }
 			}
