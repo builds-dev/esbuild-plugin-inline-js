@@ -40,6 +40,7 @@ export const get_inline_js = async path => {
 		bundle: true,
 		write: false,
 		format: 'esm',
+		metafile: true,
 		minify: true,
 		sourcemap: 'inline',
 		target: 'es6'
@@ -78,5 +79,8 @@ export const get_inline_js = async path => {
 			: export_const (specifier.exported.name, value)
 	})
 
-	return recast.print(ast).code
+	return {
+		input_file_paths: Object.keys(bundle.metafile.inputs),
+		code: recast.print(ast).code
+	}
 }

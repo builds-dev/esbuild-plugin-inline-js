@@ -31,8 +31,12 @@ export const inline_js = () => {
 					importer,
 					options
 				)
+				const { code, input_file_paths } = await get_inline_js(resolution.id)
 				this.addWatchFile(resolution.id)
-				return { code: await get_inline_js(resolution.id) }
+				for (const x of input_file_paths) {
+					this.addWatchFile(x)
+				}
+				return { code }
 			}
 			return null
 		}
